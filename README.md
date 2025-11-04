@@ -1,31 +1,31 @@
 # Bulk Data Export Script
 
-Script untuk export semua data dari game Roblox `ReplicatedStorage.Data` ke API endpoint.
+Script to export all data from Roblox game's `ReplicatedStorage.Data` to an API endpoint.
 
-## Deskripsi
+## Description
 
-Script ini akan:
-1. Scan semua module dan folder di `ReplicatedStorage.Data` secara recursive
-2. Extract data yang bisa di-serialize (string, number, boolean, table)
-3. Kirim semua data ke API endpoint via POST request dalam format JSON
+This script will:
+1. Scan all modules and folders in `ReplicatedStorage.Data` recursively
+2. Extract serializable data (string, number, boolean, table)
+3. Send all data to an API endpoint via POST request in JSON format
 
-## Cara Pakai
+## Usage
 
-1. Update endpoint di file `main.lua`:
+1. Update the endpoint in `main.lua`:
    ```lua
-   local ENDPOINT = "https://your-endpoint.com/api/data" -- Ganti dengan endpoint kamu
+   local ENDPOINT = "https://your-endpoint.com/api/data" -- Replace with your endpoint
    ```
 
-2. Jalankan script di Roblox executor atau inject ke game
+2. Run the script in a Roblox executor or inject it into the game
 
-3. Script akan otomatis:
+3. The script will automatically:
    - Scan `ReplicatedStorage.Data`
-   - Print semua data yang ditemukan
-   - Kirim ke endpoint yang sudah dikonfigurasi
+   - Print all found data
+   - Send to the configured endpoint
 
-## Konfigurasi
+## Configuration
 
-Edit bagian ini di `main.lua` untuk mengubah endpoint:
+Edit this section in `main.lua` to change the endpoint:
 
 ```lua
 local ENDPOINT = "https://5573347a9747.ngrok-free.app/post-test"
@@ -33,29 +33,29 @@ local ENDPOINT = "https://5573347a9747.ngrok-free.app/post-test"
 
 ## Output
 
-Script akan menampilkan:
-- ✅ Loaded: [nama module] - untuk setiap module yang berhasil di-load
-- Total data sections found: [jumlah] - jumlah total data yang ditemukan
-- ✅ All data sent successfully! - jika berhasil kirim ke endpoint
-- ⚠️ Error messages - jika ada error
+The script will display:
+- ✅ Loaded: [module name] - for each successfully loaded module
+- Total data sections found: [count] - total number of data sections found
+- ✅ All data sent successfully! - if successfully sent to endpoint
+- ⚠️ Error messages - if any errors occur
 
-## Fitur
+## Features
 
-- ✅ Recursive scanning - scan semua folder dan subfolder
-- ✅ Circular reference detection - menghindari infinite loop
-- ✅ Error handling - handle error dengan graceful
-- ✅ JSON encoding - convert data ke JSON format
-- ✅ HTTP POST request - kirim ke endpoint
+- ✅ Recursive scanning - scan all folders and subfolders
+- ✅ Circular reference detection - prevent infinite loops
+- ✅ Error handling - graceful error handling
+- ✅ JSON encoding - convert data to JSON format
+- ✅ HTTP POST request - send to endpoint
 
 ## Requirements
 
-- Roblox game dengan `ReplicatedStorage.Data` structure
-- HttpService enabled di game
-- API endpoint yang siap menerima POST request dengan JSON body
+- Roblox game with `ReplicatedStorage.Data` structure
+- HttpService enabled in the game
+- API endpoint ready to receive POST requests with JSON body
 
-## Catatan
+## Notes
 
-- Script hanya extract data yang bisa di-serialize (string, number, boolean, table)
-- Data yang tidak bisa di-serialize akan di-skip
-- Pastikan endpoint kamu siap menerima data dalam format JSON
+- Script only extracts serializable data (string, number, boolean, table)
+- Non-serializable data will be skipped
+- Make sure your endpoint is ready to receive data in JSON format
 
